@@ -69,8 +69,6 @@ nnoremap <leader>q :q<CR>
 " Map leader+x to save and quit
 nnoremap <leader>x :wq<CR>
 set relativenumber
-set termguicolors
 set laststatus=2
 let g:jb_style='mid'
-colorscheme jb
 set statusline=%f\ %h%m%r\ %=%-14.(%l,%c%V%)\ %P
