@@ -1,8 +1,8 @@
 call plug#begin()
 
 " List your plugins here
-Plug 'tpope/vim-sensible'
-Plug 'devsjc/vim-jb'
+"Plug 'tpope/vim-sensible'
+"Plug 'devsjc/vim-jb'
 
 call plug#end()
 
