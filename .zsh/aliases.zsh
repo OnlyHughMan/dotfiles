@@ -2,6 +2,8 @@
 if [ "$PWD" = "$HOME" ]; then
   alias git='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 fi
+
+export GPG_TTY=$(tty)
 # Git
 alias gc='git commit'
 alias gco='git checkout'
