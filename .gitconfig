@@ -1,6 +1,7 @@
 [user]
 	name = Hugh Vidler
 	email = hughvidler@gmail.com
+	signingkey = 4C7EB93C2641AD88
 [push]
 	autoSetupRemote = true
 [credential]
@@ -14,3 +15,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[commit]
+	gpgsign = true
