@@ -1,4 +1,7 @@
-
+# use df when in home dir
+if [ "$PWD" = "$HOME" ]; then
+  alias git='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+fi
 # Git
 alias gc='git commit'
 alias gco='git checkout'
