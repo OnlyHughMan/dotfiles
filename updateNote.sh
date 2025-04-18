@@ -9,7 +9,7 @@ fi
 echo "OBSIDIAN_PATH: $OBSIDIAN_PATH"
 
 # Change to the Obsidian directory
-#obsidian_dir="$HOME/$OBSIDIAN_PATH"
+obsidian_dir="$HOME/$OBSIDIAN_PATH"
 #if [ ! -d "$obsidian_dir" ]; then
 #    echo "Directory $obsidian_dir does not exist."
 #    exit 1

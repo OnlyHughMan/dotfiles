@@ -1,10 +1,3 @@
-call plug#begin()
-
-" List your plugins here
-"Plug 'tpope/vim-sensible'
-"Plug 'devsjc/vim-jb'
-
-call plug#end()
 
 " Enable line numbers
 set number
@@ -36,7 +29,6 @@ set showmatch
 " Enable line wrapping
 set wrap
 
-
 " Display line and column number in the status line
 set ruler
 
@@ -49,7 +41,8 @@ set encoding=utf-8
 " Enable persistent undo so you can undo after closing Vim
 set undofile
 " allows vim to use system clipboard
-set clipboard=unnamed
+set clipboard+=unnamedplus
+
 
 " Set up backups and swap files (optional)
 set backup
@@ -65,10 +58,24 @@ nnoremap <leader>w :w<CR>
 
 " Map leader+q to quit
 nnoremap <leader>q :q<CR>
-
+" to go up and down in history
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
 " Map leader+x to save and quit
 nnoremap <leader>x :wq<CR>
 set relativenumber
 set laststatus=2
-let g:jb_style='mid'
 set statusline=%f\ %h%m%r\ %=%-14.(%l,%c%V%)\ %P
+
+if has('persistent_undo')         "check if your vim version supports
+  set undodir=~/.vim/undo     "directory where the undo files will be stored
+  set undofile                    "turn on the feature
+endif
+"this is for ideavim tests
+map <leader>r :action Run<CR>
+map <leader>d :action Debug<CR>
+map <leader>s :action Stop<CR>
+set wildmode=longest,list,full
+set wildmenu
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
