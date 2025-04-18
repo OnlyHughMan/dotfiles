@@ -1,0 +1,5 @@
+source ~/.vimrc
+Plug 'preservim/nerdtree'
+set ideajoin
+set idearefactormode=keep
+
