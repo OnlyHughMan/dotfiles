@@ -20,7 +20,12 @@ require("lazy").setup("plugins", {
     notify = false, -- turn off notifications whenever plugin changes are made
   },
 })
-
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.opt_local.indentkeys:remove("<:>")
+  end,
+})
 -- These modules are not loaded by lazy
 require("core.options")
 require("core.keymaps")

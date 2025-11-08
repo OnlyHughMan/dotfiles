@@ -73,5 +73,5 @@ map <leader>d :action Debug<CR>
 map <leader>s :action Stop<CR>
 set wildmode=longest,list,full
 set wildmenu
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
+cnoremap <C-j> <C-n>
+cnoremap <C-k> <C-p>

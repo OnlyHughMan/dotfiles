@@ -10,7 +10,6 @@ return {
     { 'williamboman/mason.nvim' },
     -- https://github.com/williamboman/mason-lspconfig.nvim
     { 'williamboman/mason-lspconfig.nvim' },
-
     -- Auto-Install LSPs, linters, formatters, debuggers
     -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
     { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
@@ -41,7 +40,8 @@ return {
         'quick_lint_js',
         'yamlls',
         'ts_ls'
-      }
+      },
+      automatic_installation = true,
     })
 
     require('mason-tool-installer').setup({
@@ -61,49 +61,6 @@ return {
     local lsp_attach = function(client, bufnr)
       -- Create your keybindings here...
     end
-
-    -- Call setup on each LSP server
-    require('mason-lspconfig').setup_handlers({
-      function(server_name)
-        -- Don't call setup for JDTLS Java LSP because it will be setup from a separate config
-        if server_name ~= 'jdtls' then
-          lspconfig[server_name].setup({
-            on_attach = lsp_attach,
-            capabilities = lsp_capabilities,
-          })
-        end
-      end,
-      ['ts_ls'] = function()
-          lspconfig.ts_ls.setup({
-            on_attach = lsp_attach,
-            capabilities = lsp_capabilities,
-            settings = {
-                typescript = {
-                    inlayHints = {
-                        includeInlayParameterNameHints = 'all',
-                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                        includeInlayFunctionParameterTypeHints = true,
-                        includeInlayVariableTypeHints = true,
-                        includeInlayPropertyDeclarationTypeHints = true,
-                        includeInlayFunctionLikeReturnTypeHints = true,
-                        includeInlayEnumMemberValueHints = true,
-                    },
-                },
-                javascript = {
-                    inlayHints = {
-                        includeInlayParameterNameHints = 'all',
-                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                        includeInlayFunctionParameterTypeHints = true,
-                        includeInlayVariableTypeHints = true,
-                        includeInlayPropertyDeclarationTypeHints = true,
-                        includeInlayFunctionLikeReturnTypeHints = true,
-                        includeInlayEnumMemberValueHints = true,
-                    },
-                },
-            },
-            })
-        end,
-    })
 
     -- Lua LSP settings
     lspconfig.lua_ls.setup {

@@ -7,5 +7,7 @@ export M2_HOME=/opt/homebrew/opt/maven
 export MAVEN_HOME=/opt/homebrew/opt/maven
 export GRADLE_HOME=/usr/local/gradle/gradle-8.10.2
 export OBSIDIAN_PATH="Documents/Obsidian\ Vault"
+export NODE_EXTRA_CA_CERTS=~/.mitmproxy/mitmproxy-ca-cert.pem
 
 set -o noclobber
+export GPG_TTY=$(tty)
