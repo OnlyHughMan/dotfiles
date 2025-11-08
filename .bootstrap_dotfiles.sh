@@ -9,6 +9,9 @@ WORK_TREE="${WORK_TREE:-$HOME}"
 BREWFILE_PATH="${BREWFILE_PATH:-}"          # leave empty to auto-detect
 BACKUP_DIR="$HOME/.dotfiles-backup-$(date +%Y%m%d%H%M%S)"
 
+
+echo >> ~/bashrc "alias df='/usr/bin/git --git-dir=$HOME/.df/ --work-tree=$HOME'"
+
 echo ''
 
 # -------- Pretty logging (kept from your style) --------
@@ -122,6 +125,10 @@ if is_macos; then
     info "No Brewfile found (set BREWFILE_PATH or create ~/.Brewfile). Skipping brew bundle."
   fi
 fi
+
+
+mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged ~/.vim/swap
+
 
 echo ''
 echo '  All installed!'

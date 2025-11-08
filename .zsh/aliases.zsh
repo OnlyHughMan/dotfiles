@@ -8,6 +8,7 @@ alias gl='git pull -r'
 alias gst='git status'
 alias gd='git diff'
 alias glog='git log'
+alias dot_update='dotgit add -u; dotgit commit -m "dotfiles update"'
 
 # Yarn
 alias yt='yarn test'
