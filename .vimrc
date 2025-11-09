@@ -1,14 +1,15 @@
-
 " Enable line numbers
 set number
 
 " Enable syntax highlighting
 syntax on
 
+
 " Set default tab width to 4 spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
 
 " Enable auto-indentation
 set autoindent
@@ -41,7 +42,7 @@ set encoding=utf-8
 " Enable persistent undo so you can undo after closing Vim
 set undofile
 " allows vim to use system clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus,unnamed
 
 
 " Set up backups and swap files (optional)
@@ -74,4 +75,3 @@ map <leader>s :action Stop<CR>
 set wildmode=longest,list,full
 set wildmenu
 cnoremap <C-j> <C-n>
-cnoremap <C-k> <C-p>
