@@ -1,6 +1,10 @@
 export PATH="${HOME}/.pyenv/shims:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+
+if command -v jenv >/dev/null 2>&1; then
+  : "${JENV_ROOT:=$HOME/.jenv}"
+  case ":$PATH:" in *":$JENV_ROOT/bin:"*) ;; *) PATH="$JENV_ROOT/bin:$PATH";; esac
+  eval "$(jenv init -)"
+fi
 
 if [[ $(uname -m) == 'arm64' ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"

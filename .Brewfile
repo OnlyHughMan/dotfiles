@@ -1,10 +1,8 @@
-tap "homebrew/bundle"
-tap "d12frosted/emacs-plus"
 tap "hashicorp/tap"
 
 brew "ffmpeg"
-brew "postgresql@17"
 brew "gh"
+
 brew "git"
 brew "jq"
 brew "llvm"
@@ -18,10 +16,23 @@ brew "tmux"
 brew "tree"
 brew "zoxide"
 brew "zsh-autosuggestions"
-brew "d12frosted/emacs-plus/emacs-plus"
+
+brew "bat"
+brew "fzf"
+brew "postgresql"
 
 cask "ghostty"
 cask "hashicorp-vagrant"
 cask "mitmproxy"
 cask "vlc"
 cask "zed"
+
+# orgmode deps
+tap "d12frosted/emacs-plus"
+
+brew "d12frosted/emacs-plus/emacs-plus"
+brew "fd"
+brew "markdown"
+brew "shellcheck"
+
+cask "syncthing"

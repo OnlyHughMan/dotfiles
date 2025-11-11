@@ -8,7 +8,11 @@ alias gl='git pull -r'
 alias gst='git status'
 alias gd='git diff'
 alias glog='git log'
+
+# dotfiles
 alias dot_update='dotgit add -u; dotgit commit -m "dotfiles update"'
+alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dg='dotgit'
 
 # Yarn
 alias yt='yarn test'
@@ -31,8 +35,10 @@ alias rm_images='rm_containers && docker rmi -f $(docker images -aq)'
 alias zed="open -a /Applications/Zed.app -n"
 alias stc="say finished"
 alias ij="/usr/local/bin/idea ."
-alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dft='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status'
 alias runcpp='function _runcpp(){ g++ -Wall "$1" -o "${1%.cpp}" && ./"${1%.cpp}" < "$2"; }; _runcpp'
 alias init.lua='~/.config/nvim/init.lua'
 alias unb64="pbpaste | base64 --decode"
+alias sts='aws sts get-caller-identity --no-cli-pager'
+alias -g -- ~~='2>&1 | less'
+alias ksec="kubectl get secrets -o json | jq '.items[] | {name: .metadata.name,data: .data|map_values(@base64d)}'"
+

@@ -5,12 +5,13 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git)
+plugins=(git fzf zsh-autosuggestions)
+
 source $ZSH/oh-my-zsh.sh
 
 # Extras
 eval "$(zoxide init zsh)"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Source modular config
 source ~/.zsh/exports.zsh
@@ -25,3 +26,9 @@ done
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bindkey -v
+
+for f in "$HOME"/.zsh/*.zsh "$HOME"/.zsh/**/*.zsh; do
+  [ -r "$f" ] && source "$f"
+done
+
+export PATH="$HOME/.local/bin:$PATH"
