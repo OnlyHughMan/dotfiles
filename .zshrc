@@ -32,3 +32,5 @@ for f in "$HOME"/.zsh/*.zsh "$HOME"/.zsh/**/*.zsh; do
 done
 
 export PATH="$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
