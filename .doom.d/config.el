@@ -37,6 +37,12 @@
 (after! evil
   (map! :n "gx" #'browse-url-at-point)
   (map! :v "gx" #'browse-url-at-point))
+
+
+;; This is so buffers auto-save
+;; auto save
+(setq auto-save-visited-interval 10)
+(auto-save-visited-mode +1)
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 ;; (setq user-full-name "John Doe"
