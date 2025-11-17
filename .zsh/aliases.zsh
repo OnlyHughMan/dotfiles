@@ -11,8 +11,11 @@ alias glog='git log'
 
 # dotfiles
 alias dot_update='dotgit add -u; dotgit commit -m "dotfiles update"'
+alias du='dotgit add -u; dotgit commit -m "dotfiles update"'
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dg='dotgit'
+alias dp='dotgit push'
+alias ds='dotgit status'
 
 # Yarn
 alias yt='yarn test'
