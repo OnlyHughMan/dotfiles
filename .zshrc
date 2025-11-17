@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+#zmodload zsh/zprof
 # Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -36,4 +36,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
-zprof
+#zprof
