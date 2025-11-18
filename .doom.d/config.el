@@ -7,16 +7,22 @@
 (global-set-key [s-mouse-1] #'browse-url-at-point)
 
 (after! org
-  ;;;; Make DONE keyword green
   (set-face-attribute 'org-done nil
                       :foreground "chartreuse3"
                       :weight 'bold
                       :strike-through nil)
-  ;; Keep rest of DONE headline normal
   (set-face-attribute 'org-headline-done nil
                       :foreground nil
                       :weight 'normal
-                      :strike-through nil))
+                      :strike-through nil)
+
+  (setq org-todo-keyword-faces
+        (append
+         org-todo-keyword-faces
+         '(("DOING"    . (:foreground "DeepSkyBlue3" :weight bold))
+           ("WAITING"  . (:foreground "gold" :weight bold))
+           ("CANCELLED". (:foreground "IndianRed1" :weight bold))
+           ("BLOCKED"  . (:foreground "IndianRed1" :weight bold))))))
 ;; custom function to add date time for journal entries
 (after! org
   (map! :map org-mode-map
