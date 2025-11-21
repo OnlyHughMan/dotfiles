@@ -45,7 +45,9 @@ endif
 
 " Colorscheme (must come after termguicolors)
 set background=dark
-colorscheme catppuccin_mocha
+if !has('nvim')
+  colorscheme catppuccin_mocha
+endif
 
 " Diffs are shown side-by-side not above/below
 set diffopt=vertical
@@ -93,11 +95,13 @@ set directory=~/.vim/swaps
 " Set a leader key (for custom mappings)
 let mapleader=","
 
-" Move around splits with <c-hjkl>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Move around splits with <c-hjkl> (only outside tmux - vim-tmux-navigator handles it inside)
+if !exists('$TMUX')
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+endif
 vnoremap <leader>ib :!align<cr>
 
 " Custom mappings (examples)

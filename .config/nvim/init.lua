@@ -1,4 +1,4 @@
--- vim.cmd("source ~/.vimrc")
+vim.cmd("source ~/.vimrc")
 -- Bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
