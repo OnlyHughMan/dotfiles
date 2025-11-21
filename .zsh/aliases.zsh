@@ -45,3 +45,7 @@ alias sts='aws sts get-caller-identity --no-cli-pager'
 alias -g -- ~~='2>&1 | less'
 alias ksec="kubectl get secrets -o json | jq '.items[] | {name: .metadata.name,data: .data|map_values(@base64d)}'"
 
+# Tmux
+alias ta='tmux attach'
+alias tls='tmux ls'
+

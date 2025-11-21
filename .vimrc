@@ -34,7 +34,18 @@ set autoread
 
 set signcolumn=no
 
-set termguicolors
+" True color support
+if has('termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_Cs = ""
+  let &t_Ce = ""
+  set termguicolors
+endif
+
+" Colorscheme (must come after termguicolors)
+set background=dark
+colorscheme catppuccin_mocha
 
 " Diffs are shown side-by-side not above/below
 set diffopt=vertical

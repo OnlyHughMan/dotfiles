@@ -52,5 +52,5 @@ opt.mouse = ""
 -- Folding
 opt.foldlevel = 20
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Utilize Treesitter folds
 
