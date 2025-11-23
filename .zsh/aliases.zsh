@@ -49,3 +49,5 @@ alias ksec="kubectl get secrets -o json | jq '.items[] | {name: .metadata.name,d
 alias ta='tmux attach'
 alias tls='tmux ls'
 
+# lcp
+alias next='lcp practice'

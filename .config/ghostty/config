@@ -69,4 +69,8 @@ quick-terminal-position = "bottom"
 keybind = shift+ctrl+left_bracket=previous_tab
 keybind = shift+ctrl+right_bracket=next_tab
 keybind = shift+ctrl+,=move_tab:-1
+
+# Shift+Enter sends a special sequence for newline insertion
+keybind = shift+enter=csi:13;2u
+
 clipboard-paste-protection=false
