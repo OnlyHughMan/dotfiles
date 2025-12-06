@@ -10,6 +10,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 ## Finder
 

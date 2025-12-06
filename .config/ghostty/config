@@ -5,6 +5,7 @@
 # theme = Synthwave
 # theme = Gruvbox 
 # theme = Grape 
+auto-update-channel = tip
 theme = Catppuccin Mocha 
 
 custom-shader = shaders/cursor_smear.glsl
