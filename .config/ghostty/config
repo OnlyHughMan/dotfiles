@@ -7,7 +7,6 @@
 # theme = Grape 
 theme = Catppuccin Mocha 
 
-
 custom-shader = shaders/cursor_smear.glsl
 #custom-shader = shaders/cursor_blaze_tapered.glsl
 #custom-shader = shaders/blaze_sparks.glsl
@@ -72,5 +71,8 @@ keybind = shift+ctrl+,=move_tab:-1
 
 # Shift+Enter sends a special sequence for newline insertion
 keybind = shift+enter=csi:13;2u
+
+# Cmd+K to clear terminal
+keybind = super+k=esc:k
 
 clipboard-paste-protection=false
