@@ -8,6 +8,7 @@
 auto-update-channel = tip
 theme = Catppuccin Mocha 
 window-save-state = always
+maximize = true
 
 
 custom-shader = shaders/cursor_smear.glsl
