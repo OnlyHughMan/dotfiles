@@ -10,9 +10,13 @@ alias gd='git diff'
 alias glog='git log'
 
 # dotfiles
-alias dot_update='dotgit add -u; dotgit commit -m "dotfiles update"'
-alias du='dotgit add -u; dotgit commit -m "dotfiles update"'
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dot_update='dotgit add -u; dotgit commit -m "dotfiles update"'
+du() {
+  local msg="${1:-dotfiles update}"
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add -u && \
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$msg"
+}
 alias dg='dotgit'
 alias dp='dotgit push'
 alias ds='dotgit status'
