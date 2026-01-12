@@ -8,6 +8,7 @@ alias gl='git pull -r'
 alias gst='git status'
 alias gd='git diff'
 alias glog='git log'
+alias gupd="git add .; git commit -m 'quick update'"
 
 # dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
