@@ -9,6 +9,7 @@ alias gst='git status'
 alias gd='git diff'
 alias glog='git log'
 alias gupd="git add .; git commit -m 'quick update'"
+alias py3="python3 $1"
 
 # dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

@@ -41,8 +41,13 @@ keymap.set('n', '<leader>ft', function()
   require('telescope.builtin').live_grep({search_dirs = {node.absolute_path}})
 end, { desc = "Grep in tree node" })
 
--- Git-blame
-keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Toggle git blame" })
+-- Git (fugitive + gitsigns -- see plugin files for hunk keymaps)
+keymap.set("n", "<leader>gs", ":Git<CR>",        { desc = "Git status" })
+keymap.set("n", "<leader>gc", ":Git commit<CR>",  { desc = "Git commit" })
+keymap.set("n", "<leader>gp", ":Git push<CR>",    { desc = "Git push" })
+keymap.set("n", "<leader>gl", ":Git log<CR>",     { desc = "Git log" })
+keymap.set("n", "<leader>gd", ":Gdiffsplit<CR>",  { desc = "Git diff split" })
+keymap.set("n", "<leader>gb", ":Git blame<CR>",   { desc = "Git blame" })
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -60,21 +65,21 @@ keymap.set("n", "<C-.>", function() harpoon:list():next() end, { desc = "Harpoon
 
 
 -- LSP
-keymap.set('n', '<leader>gg', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = "LSP hover" })
-keymap.set('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = "LSP definition" })
-keymap.set('n', '<leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { desc = "LSP declaration" })
-keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "LSP implementation" })
-keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { desc = "LSP type definition" })
-keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = "LSP references" })
-keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = "LSP signature help" })
-keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = "LSP rename" })
-keymap.set('n', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = "LSP format" })
-keymap.set('v', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = "LSP format" })
-keymap.set('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = "LSP code action" })
-keymap.set('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = "LSP diagnostic float" })
-keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = "LSP previous diagnostic" })
-keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = "LSP next diagnostic" })
-keymap.set('n', '<leader>tr', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', { desc = "LSP document symbols" })
-keymap.set('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', { desc = "LSP completion" })
+keymap.set('n', 'K',           '<cmd>lua vim.lsp.buf.hover()<CR>',              { desc = "LSP hover" })
+keymap.set('n', 'gd',          '<cmd>lua vim.lsp.buf.definition()<CR>',         { desc = "LSP definition" })
+keymap.set('n', 'gD',          '<cmd>lua vim.lsp.buf.declaration()<CR>',        { desc = "LSP declaration" })
+keymap.set('n', 'gi',          '<cmd>lua vim.lsp.buf.implementation()<CR>',     { desc = "LSP implementation" })
+keymap.set('n', 'gy',          '<cmd>lua vim.lsp.buf.type_definition()<CR>',    { desc = "LSP type definition" })
+keymap.set('n', 'gr',          '<cmd>lua vim.lsp.buf.references()<CR>',         { desc = "LSP references" })
+keymap.set('n', 'gK',          '<cmd>lua vim.lsp.buf.signature_help()<CR>',     { desc = "LSP signature help" })
+keymap.set('n', '<leader>rr',  '<cmd>lua vim.lsp.buf.rename()<CR>',             { desc = "LSP rename" })
+keymap.set('n', '<leader>cf',  '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = "LSP format" })
+keymap.set('v', '<leader>cf',  '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = "LSP format" })
+keymap.set('n', '<leader>ca',  '<cmd>lua vim.lsp.buf.code_action()<CR>',        { desc = "LSP code action" })
+keymap.set('n', '<leader>d',   '<cmd>lua vim.diagnostic.open_float()<CR>',      { desc = "LSP diagnostic float" })
+keymap.set('n', '[d',          '<cmd>lua vim.diagnostic.goto_prev()<CR>',       { desc = "LSP previous diagnostic" })
+keymap.set('n', ']d',          '<cmd>lua vim.diagnostic.goto_next()<CR>',       { desc = "LSP next diagnostic" })
+keymap.set('n', '<leader>tr',  '<cmd>lua vim.lsp.buf.document_symbol()<CR>',    { desc = "LSP document symbols" })
+keymap.set('i', '<C-Space>',   '<cmd>lua vim.lsp.buf.completion()<CR>',         { desc = "LSP completion" })
 
 
