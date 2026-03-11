@@ -53,14 +53,13 @@ return {
     -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
     vim.api.nvim_command('MasonToolsInstall')
 
-    local lspconfig = require('lspconfig')
-    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-    local lsp_attach = function(client, bufnr)
-      -- Create your keybindings here...
-    end
+    -- Apply cmp capabilities globally to all LSP servers
+    vim.lsp.config('*', {
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    })
 
     -- Lua LSP settings
-    lspconfig.lua_ls.setup {
+    vim.lsp.config('lua_ls', {
       settings = {
         Lua = {
           diagnostics = {
@@ -69,7 +68,8 @@ return {
           },
         },
       },
-    }
+    })
+    vim.lsp.enable('lua_ls')
 
     -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
     local open_floating_preview = vim.lsp.util.open_floating_preview
