@@ -38,3 +38,4 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(atuin init zsh --disable-up-arrow)"
 #zprof
 
+source <(entire completion zsh)

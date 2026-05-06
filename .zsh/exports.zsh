@@ -1,16 +1,14 @@
 export NVM_DIR="$HOME/.nvm"
 
-_nvm_lazy_load() {
-  unset -f nvm node npm npx _nvm_lazy_load
+nvm_lazy_load() {
+  unset -f nvm node npm npx nvm_lazy_load
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  # Optional completion:
-  # [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
 }
 
-nvm()  { _nvm_lazy_load; nvm  "$@"; }
-node() { _nvm_lazy_load; node "$@"; }
-npm()  { _nvm_lazy_load; npm  "$@"; }
-npx()  { _nvm_lazy_load; npx  "$@"; }
+nvm()  { nvm_lazy_load; nvm  "$@"; }
+node() { nvm_lazy_load; node "$@"; }
+npm()  { nvm_lazy_load; npm  "$@"; }
+npx()  { nvm_lazy_load; npx  "$@"; }
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export M2_HOME=/opt/homebrew/opt/maven

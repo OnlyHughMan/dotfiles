@@ -10,6 +10,11 @@ epoch() {
     return
   fi
 
+  # Auto-detect milliseconds (13+ digits) and convert to seconds
+  if [[ ${#epoch_time} -ge 13 ]]; then
+    epoch_time=$(( epoch_time / 1000 ))
+  fi
+
   echo "UTC:  $(date -u -r "$epoch_time" '+%Y-%m-%d %H:%M:%S %Z')"
   echo "AEST: $(TZ='Australia/Sydney' date -r "$epoch_time" '+%Y-%m-%d %H:%M:%S %Z')"
 }

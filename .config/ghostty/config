@@ -68,6 +68,7 @@ window-inherit-working-directory = false
 working-directory = home
 
 # keymaps
+keybind = super+f=start_search
 keybind = global:opt+cmd+\=toggle_quick_terminal
 quick-terminal-position = "bottom"
 
@@ -77,8 +78,5 @@ keybind = shift+ctrl+,=move_tab:-1
 
 # Shift+Enter sends a special sequence for newline insertion
 keybind = shift+enter=text:\x1b\r
-
-# Cmd+K to clear terminal
-keybind = super+k=text:clear\r
 
 clipboard-paste-protection=false
