@@ -48,13 +48,19 @@ success "Repo ready."
 
 # -------- Checkout into $HOME with conflict backup --------
 info "Checking out dotfiles into $WORK_TREE"
-if ! DOTGIT checkout; then
+if ! DOTGIT checkout 2>/dev/null; then
   info "Conflicts detected; backing up to $BACKUP_DIR"
   mkdir -p "$BACKUP_DIR"
-  DOTGIT checkout 2>&1 | awk '/\t/ {print $1}' | while read -r path; do
+  # This checkout is expected to fail; it runs only to harvest the conflict
+  # list, which git indents with a tab. Without the `|| true` the failure
+  # propagates through pipefail and set -e aborts before the real checkout.
+  conflicts="$( { DOTGIT checkout 2>&1 || true; } | awk '/^\t/ {print $1}' )"
+  while IFS= read -r path; do
+    [ -n "$path" ] || continue
     mkdir -p "$BACKUP_DIR/$(dirname "$path")"
-    mv "$WORK_TREE/$path" "$BACKUP_DIR/$path" 2>/dev/null || true
-  done
+    mv "$WORK_TREE/$path" "$BACKUP_DIR/$path"
+    info "  backed up $path"
+  done <<< "$conflicts"
   DOTGIT checkout
 fi
 success "Dotfiles checked out."
