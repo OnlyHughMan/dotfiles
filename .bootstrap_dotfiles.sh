@@ -10,8 +10,6 @@ BREWFILE_PATH="${BREWFILE_PATH:-}"          # leave empty to auto-detect
 BACKUP_DIR="$HOME/.dotfiles-backup-$(date +%Y%m%d%H%M%S)"
 
 
-echo >> ~/bashrc "alias df='/usr/bin/git --git-dir=$HOME/.df/ --work-tree=$HOME'"
-
 echo ''
 
 # -------- Pretty logging (kept from your style) --------
@@ -61,35 +59,10 @@ if ! DOTGIT checkout; then
 fi
 success "Dotfiles checked out."
 
-# -------- Add persistent alias to shell rc (exact match, idempotent) --------
-add_alias_if_missing() {
-  local rc="$1"
-  local line="alias dotgit='git --git-dir=\$HOME/.dotfiles/ --work-tree=\$HOME'"
-  [[ -f "$rc" ]] || return 0
-  if ! grep -qxF "$line" "$rc" 2>/dev/null; then
-    printf "\n# dotfiles bare-repo helper\n%s\n" "$line" >> "$rc"
-    success "Added dotgit alias to $rc"
-  else
-    info "dotgit alias already present in $rc"
-  fi
-}
-add_alias_if_missing "$HOME/.zshrc"
-
-# Also make it available in THIS shell
+# -------- dotgit alias --------
+# The persistent definition lives in the tracked .zsh/aliases.zsh, which .zshrc
+# sources; this only needs to exist for the remainder of THIS shell.
 alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-# -------- Optional: ensure ~/.zsh/*.zsh gets sourced (once) --------
-if [[ -f "$HOME/.zshrc" ]] && ! grep -q "### DOTFILES_ZSH_LOAD_BEGIN ###" "$HOME/.zshrc" 2>/dev/null; then
-  cat >> "$HOME/.zshrc" <<'EOF'
-
-### DOTFILES_ZSH_LOAD_BEGIN ###
-for f in "$HOME"/.zsh/*.zsh "$HOME"/.zsh/**/*.zsh; do
-  [ -r "$f" ] && source "$f"
-done
-### DOTFILES_ZSH_LOAD_END ###
-EOF
-  success "Added ~/.zsh/**/*.zsh sourcing loop to ~/.zshrc"
-fi
 
 # -------- Homebrew + Brewfile (idempotent) --------
 if is_macos; then

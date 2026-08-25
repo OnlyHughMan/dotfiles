@@ -28,10 +28,6 @@ done
 
 # bindkey -v
 
-for f in "$HOME"/.zsh/*.zsh "$HOME"/.zsh/**/*.zsh; do
-  [ -r "$f" ] && source "$f"
-done
-
 export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
