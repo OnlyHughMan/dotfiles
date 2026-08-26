@@ -1,7 +1,6 @@
 [user]
 	name = Hugh Vidler
 	email = hughvidler@gmail.com
-# Work repos commit as CoreWeave; everything else uses the personal email above.
 [includeIf "gitdir:~/work/"]
 	path = ~/.gitconfig-work
 [push]
