@@ -109,5 +109,15 @@ fi
 mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged ~/.vim/swap
 
 
+# -------- Warn if ~/.local is not writable --------
+# XDG tools (nvim's lazy.nvim, etc.) write to ~/.local/{share,state}. Some
+# installers create ~/.local as root, which fails with a confusing downstream
+# error. Report it rather than escalating, since the fix needs sudo.
+if [[ -e "$HOME/.local" && ! -w "$HOME/.local" ]]; then
+  user "~/.local is not writable (owner: $(stat -f '%Su' "$HOME/.local"))"
+  user "  XDG tools like nvim will fail. Fix with: sudo chown -R \$(whoami) ~/.local"
+fi
+
+
 echo ''
 echo '  All installed!'
