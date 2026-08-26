@@ -65,3 +65,5 @@
     pf = push --force-with-lease
 [merge]
     tool = vimdiff
+[url "git@github.com:"]
+	insteadOf = https://github.com/
