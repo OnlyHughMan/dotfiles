@@ -1,5 +1,3 @@
-tap "hashicorp/tap"
-
 brew "gh"
 
 brew "git"
@@ -8,7 +6,6 @@ brew "neovim"
 brew "pyenv"
 brew "rbenv"
 brew "ripgrep"
-brew "hashicorp/tap/terraform"
 brew "tmux"
 brew "tree"
 brew "zoxide"

@@ -1,5 +1,3 @@
-. "$HOME/.cargo/env"
-
 # Make nvm's default node available in non-interactive shells (e.g. Claude Code)
 export NVM_DIR="$HOME/.nvm"
 if [ -d "$NVM_DIR/versions/node" ]; then

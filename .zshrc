@@ -5,14 +5,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git fzf zsh-autosuggestions)
+# Theme and autosuggestions come from brew, not oh-my-zsh's custom dirs, so they
+# are sourced directly below. Leaving them in ZSH_THEME/plugins makes oh-my-zsh
+# search ~/.oh-my-zsh/custom and warn that it can't find them.
+ZSH_THEME=""
+plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
+# Must load before ~/.p10k.zsh, which configures it
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
 # Extras
 eval "$(zoxide init zsh)"
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Source modular config
 source ~/.zsh/exports.zsh
@@ -31,7 +37,4 @@ done
 export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(atuin init zsh --disable-up-arrow)"
 #zprof
-
-source <(entire completion zsh)
