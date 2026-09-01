@@ -14,7 +14,7 @@ alias py3="python3 $1"
 # dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dot_update='dotgit add -u; dotgit commit -m "dotfiles update"'
-du() {
+dup() {
   local msg="${1:-dotfiles update}"
   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add -u && \
   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$msg"
