@@ -39,4 +39,5 @@ export PATH="$HOME/.local/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #zprof
 eval "$( direnv hook zsh )"
-source /Users/hvidler/work/W&B/core/dev-setup/zshrc.zsh
+source "$HOME/work/wandb/core/dev-setup/zshrc.zsh"
+export PATH="$PATH:/Users/hvidler/.local/bin"

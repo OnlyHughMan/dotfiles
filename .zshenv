@@ -9,3 +9,4 @@ if [ -d "$NVM_DIR/versions/node" ]; then
   [ -n "$_nvm_version" ] && export PATH="$NVM_DIR/versions/node/$_nvm_version/bin:$PATH"
   unset _nvm_default _nvm_version
 fi
+. "$HOME/.cargo/env"
