@@ -106,6 +106,21 @@ if is_macos; then
 fi
 
 
+# -------- Machine-local config stubs --------
+# The tracked configs source these conditionally. They are listed in ~/.gitignore
+# and hold anything machine- or work-specific that must never be committed.
+info "Ensuring machine-local config stubs"
+mkdir -p "$HOME/.ssh"
+for local_file in "$HOME/.zshrc.local" "$HOME/.zprofile.local" "$HOME/.zshenv.local"; do
+  [[ -e "$local_file" ]] || printf '# Machine-local config; untracked by the dotfiles repo.\n' > "$local_file"
+done
+if [[ ! -e "$HOME/.ssh/config.local" ]]; then
+  printf '# Machine-local ssh config; untracked by the dotfiles repo.\n' > "$HOME/.ssh/config.local"
+  chmod 600 "$HOME/.ssh/config.local"
+fi
+success "Machine-local stubs ready"
+
+
 mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged ~/.vim/swap
 
 

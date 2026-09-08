@@ -10,3 +10,6 @@ if [ -d "$NVM_DIR/versions/node" ]; then
   unset _nvm_default _nvm_version
 fi
 . "$HOME/.cargo/env"
+
+# Machine-local overrides; untracked by the dotfiles repo.
+[[ ! -f ~/.zshenv.local ]] || . ~/.zshenv.local

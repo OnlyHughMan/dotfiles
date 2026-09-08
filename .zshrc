@@ -39,5 +39,7 @@ export PATH="$HOME/.local/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #zprof
 eval "$( direnv hook zsh )"
-source "$HOME/work/wandb/core/dev-setup/zshrc.zsh"
 export PATH="$PATH:/Users/hvidler/.local/bin"
+
+# Machine-local overrides; untracked by the dotfiles repo.
+[[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local
